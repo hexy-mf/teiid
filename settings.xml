@@ -61,9 +61,9 @@ http://maven.apache.org/xsd/settings-1.0.0.xsd">
       <id>jboss-eap-alpha</id>
       <repositories>
         <repository>
-          <id>jboss-eap-alpha</id>
-          <name>JBoss EAP 6.3.0.Alpha</name>
-          <url>http://maven.repository.redhat.com/techpreview/eap6/6.3.0.Alpha/maven-repository/</url>
+          <id>jboss-earlyaccess</id>
+          <name>JBoss EAP 6.3.0 Early Access</name>
+          <url>https://maven.repository.redhat.com/earlyaccess/all</url>
           <layout>default</layout>
           <releases>
             <enabled>true</enabled>
@@ -73,7 +73,20 @@ http://maven.apache.org/xsd/settings-1.0.0.xsd">
             <enabled>false</enabled>
           </snapshots>
         </repository>
-      </repositories>
+        <repository>
+          <id>jboss-ga</id>
+          <name>JBoss EAP 6.3.0 GA </name>
+          <url>https://maven.repository.redhat.com/techpreview/all</url>
+          <layout>default</layout>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+    </repositories>
     </profile>    
   </profiles>
 
