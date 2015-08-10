@@ -254,7 +254,10 @@ public class SolrSQLHierarchyVistor extends HierarchyVisitor {
     protected String escapeString(String str) {
     	// needs escaping + - && || ! ( ) { } [ ] ^ " ~ * ? :
     	// source: http://khaidoan.wikidot.com/solr
-    	String[] array = {"+", "-", "&&", "||", "!", "(", ")", "{", "}", "[", "]", "^", "\"", "~",  "*", "?", ":"}; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$ //$NON-NLS-11$ //$NON-NLS-12$ //$NON-NLS-13$ //$NON-NLS-14$ //$NON-NLS-15$ //$NON-NLS-16$ //$NON-NLS-17$
+    	String[] array = {"+", "-", "&&", "||", "!", "(", ")", "{", "}", "[", "]", "^"
+    			//Unescaped "" in order to do phrase searches.
+    			//, "\""
+    			, "~",  "*", "?", ":"}; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$ //$NON-NLS-11$ //$NON-NLS-12$ //$NON-NLS-13$ //$NON-NLS-14$ //$NON-NLS-15$ //$NON-NLS-16$ //$NON-NLS-17$
 
     	for (int i = 0; i < array.length; i++) {
     		str = StringUtil.replaceAll(str, array[i],  "\\" + array[i]); //$NON-NLS-1$
