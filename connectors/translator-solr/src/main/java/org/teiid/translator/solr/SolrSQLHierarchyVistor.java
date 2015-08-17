@@ -115,7 +115,7 @@ public class SolrSQLHierarchyVistor extends HierarchyVisitor {
 		if (lhs != null) {
 			switch (obj.getOperator()) {
 			case EQ:
-				buffer.append(lhs).append(":").append(rhs); //$NON-NLS-1$
+				buffer.append(lhs).append(":\"").append(rhs).append("\""); //$NON-NLS-1$
 				break;
 			case NE:
 				buffer.append(Reserved.NOT).append(Tokens.SPACE);
