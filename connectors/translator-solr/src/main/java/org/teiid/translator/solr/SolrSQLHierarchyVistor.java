@@ -190,7 +190,9 @@ public class SolrSQLHierarchyVistor extends HierarchyVisitor {
 		int i = obj.getRightExpressions().size();
 		while(i-- > 0) {
 			//append rhs side as we iterates
+			buffer.append("\"");
 			buffer.append(onGoingExpression.pop());
+			buffer.append("\"");
 			
 			if(i > 0) {				
 				buffer.append(Tokens.SPACE).append(Reserved.OR).append(Tokens.SPACE);
