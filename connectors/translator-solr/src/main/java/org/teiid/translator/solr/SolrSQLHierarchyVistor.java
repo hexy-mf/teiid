@@ -115,7 +115,7 @@ public class SolrSQLHierarchyVistor extends HierarchyVisitor {
 		if (lhs != null) {
 			switch (obj.getOperator()) {
 			case EQ:
-				buffer.append(lhs).append(":").append(rhs); //$NON-NLS-1$
+				buffer.append(lhs).append(":\"").append(rhs).append("\""); //$NON-NLS-1$
 				break;
 			case NE:
 				buffer.append(Reserved.NOT).append(Tokens.SPACE);
@@ -190,7 +190,9 @@ public class SolrSQLHierarchyVistor extends HierarchyVisitor {
 		int i = obj.getRightExpressions().size();
 		while(i-- > 0) {
 			//append rhs side as we iterates
+			buffer.append("\"");
 			buffer.append(onGoingExpression.pop());
+			buffer.append("\"");
 			
 			if(i > 0) {				
 				buffer.append(Tokens.SPACE).append(Reserved.OR).append(Tokens.SPACE);
