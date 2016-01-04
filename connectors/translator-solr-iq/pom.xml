@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.jboss.teiid</groupId>
+    <artifactId>connectors</artifactId>
+    <version>8.9.0.Final</version>
+  </parent>
+  <groupId>com.ghs.teiid.connectors</groupId>
+  <artifactId>translator-solr-iq</artifactId>
+  <!--  <version>1.0-SNAPSHOT</version> -->
+  <name>translator-solr-iq</name>
+  <url>http://maven.apache.org</url>
+<dependencies>
+        <dependency>
+            <groupId>org.jboss.teiid</groupId>
+            <artifactId>teiid-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.teiid</groupId>
+            <artifactId>teiid-common-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.resource</groupId>
+            <artifactId>connector-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+		<dependency>
+			<groupId>org.apache.solr</groupId>
+            <artifactId>solr-solrj</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.noggit</groupId>
+            <artifactId>noggit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.teiid.connectors</groupId>
+            <artifactId>translator-jdbc</artifactId>
+            <scope>provided</scope>
+        </dependency>         
+    </dependencies>
+</project>

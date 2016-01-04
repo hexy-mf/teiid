@@ -129,6 +129,6 @@
     <module>connector-infinispan-dsl</module>
     
     <module>sandbox</module>
-
+    <module>translator-solr-iq</module>
   </modules>
 </project>
