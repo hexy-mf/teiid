@@ -115,9 +115,17 @@ public class SolrSQLHierarchyVistor extends HierarchyVisitor {
 		if (lhs != null) {
 			switch (obj.getOperator()) {
 			case EQ:
-				double dismaxFactor = Math.ceil(rhs.length() / 4); 
-				buffer.append("{!dismax ").append("qs=1").append("qf").append(Tokens.EQ)
-						.append(lhs).append("} ").append(rhs).append("~").append(dismaxFactor);
+				String[] parts = rhs.split(" ");
+				buffer.append("{!dismax q.op=AND qs=1 qf=").append(lhs).append("}");
+				boolean isFirstRun = true;
+				for (String string : parts) {
+					double dismaxFactor = Math.ceil(string.length() / 4);
+					if(!isFirstRun){
+						buffer.append(" ");
+					}
+					buffer.append(string).append("~").append(dismaxFactor);	
+				}
+				
 				break;
 			case NE:
 				buffer.append(Reserved.NOT).append(Tokens.SPACE);
