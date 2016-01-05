@@ -116,7 +116,7 @@ public class SolrSQLHierarchyVistor extends HierarchyVisitor {
 			switch (obj.getOperator()) {
 			case EQ:
 				String[] parts = rhs.split(" ");
-				buffer.append("_query_:\"{!dismax q.op=AND qs=1 qf=").append(lhs).append("}");
+				buffer.append("_query_:\"{!edismax q.op=AND qs=1 qf=").append(lhs).append("}");
 				boolean isFirstRun = true;
 				for (String string : parts) {
 					double dismaxFactor = Math.ceil(string.length() / 4);
@@ -200,7 +200,7 @@ public class SolrSQLHierarchyVistor extends HierarchyVisitor {
 		}
 
 		// start solr expression
-		buffer.append("_query_:\"{!dismax qs=1 qf=").append(lhs).append("}");
+		buffer.append("_query_:\"{!edismax qs=1 qf=").append(lhs).append("}");
 //		buffer.append(lhs).append(Tokens.COLON).append(Tokens.LPAREN);
 
 		int i = obj.getRightExpressions().size();
